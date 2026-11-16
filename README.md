@@ -14,3 +14,11 @@ python load_events.py
 ```
 
 The script reads `data/sample_orders.csv` and prints the number of events, orders, and activities, followed by a preview of the event log.
+
+## Interactive process map
+
+```bash
+streamlit run app.py
+```
+
+Open the local URL Streamlit prints. Select an order to highlight its route and see its event timeline, or choose **All orders** to see the full process. The map uses PM4Py's directly-follows counts and Streamlit's interactive ECharts graph.
