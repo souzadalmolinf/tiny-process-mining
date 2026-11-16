@@ -9,9 +9,9 @@ import pm4py
 DATA_FILE = Path(__file__).parent / "data" / "sample_orders.csv"
 
 
-def load_log() -> pd.DataFrame:
+def main() -> None:
     events = pd.read_csv(DATA_FILE)
-    return pm4py.format_dataframe(
+    log = pm4py.format_dataframe(
         events,
         case_id="case_id",
         activity_key="activity",
@@ -19,9 +19,6 @@ def load_log() -> pd.DataFrame:
         timest_format="%Y-%m-%dT%H:%M:%S%z",
     )
 
-
-def main() -> None:
-    log = load_log()
     print(f"Loaded {len(log)} events across {log['case:concept:name'].nunique()} orders.")
     print(f"Activities: {log['concept:name'].nunique()}")
     print("\nFirst events:")
